@@ -21,19 +21,22 @@ export class PostComponent implements OnInit, OnDestroy {
   public unsubscribe: any;
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    });
-
+    this.getPosts();
     this.unsubscribe = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
         if (this.router.getCurrentNavigation().extras.state &&
             this.router.getCurrentNavigation().extras.state.shouldReload) {
-          console.log('abc');
+          this.router.onSameUrlNavigation = 'reload';
         }
       }
+    });
+  }
+
+  getPosts(): void {
+    this.postService.getPosts().subscribe((posts: Post[]) => {
+      this.posts = posts;
     });
   }
 
