@@ -8,20 +8,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostService } from './services/post.service';
 import { PostComponent } from './components/post/post.component';
+import { UserService } from 'src/app/services/user.service';
+import { UsersComponent } from './components/users/users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    UsersComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule
   ],
-  providers: [PostService],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
