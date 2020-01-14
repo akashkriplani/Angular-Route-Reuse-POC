@@ -1,11 +1,16 @@
-<div class="card" *ngFor="let post of posts">
-  <div class="card-header">
-    {{post.title}}
+<div *ngFor="let post of posts">
+  <div class="card">
+      <div class="card-header">
+        {{post.title}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{post.id}}</h5>
+        <p class="card-text">{{post.body}}</p>
+        <a class="btn btn-primary" (click)="loadPosts()">Posts</a>
+        <a class="btn btn-primary" (click)="handlePostClick(post.id)">Go to Post</a>
+      </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">{{post.id}}</h5>
-    <p class="card-text">{{post.body}}</p>
-    <a class="btn btn-primary" (click)="handlePostClick(post.id)">Go to Post</a>
-    <a class="btn btn-primary" (click)="reloadPage(post.id)">Click To Reload Page</a>
-  </div>
+</div>
+<div *ngIf="showDetails">
+  <router-outlet></router-outlet>
 </div>

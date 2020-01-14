@@ -10,6 +10,7 @@ import { PostService } from './services/post.service';
 import { PostComponent } from './components/post/post.component';
 import { UserService } from 'src/app/services/user.service';
 import { UsersComponent } from './components/users/users.component';
+import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UsersComponent } from './components/users/users.component';
     AppComponent,
     PostComponent,
     PostDetailComponent,
-    UsersComponent
+    UsersComponent,
+    WrapperComponent
   ],
   imports: [
     AppRoutingModule,

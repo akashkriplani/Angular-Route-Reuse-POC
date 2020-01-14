@@ -1,0 +1,6 @@
+<ng-container *ngIf="showData; else loading">
+    <ng-container *ngComponentOutlet="content"></ng-container>
+</ng-container>
+<ng-template #loading>
+Loading...
+</ng-template>
